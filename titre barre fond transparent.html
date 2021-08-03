@@ -1,0 +1,42 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<style>
+			body {
+				background: #CFCFCF;
+				padding: 30px;
+			}
+			.titre {
+				overflow: hidden;
+				padding: 0 20px;
+			}
+			.titre h4 {
+				position: relative;
+				display: inline-block;
+				left: 50%;
+				transform: translate(-50%,0);
+				text-align: center;
+			}
+			.titre h4:before, .titre h4:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 50%;
+				width: 800px; /* cette valeur est fictive mais doit etre suffisamment grande pour que le filet aille bien jusqu'aux bords, quelle que soit la longueur du titre */
+				height: 1px;
+				border-bottom: 1px solid #8BBC06;
+			}
+			.titre h4:before {
+				right: calc(100% + 10px);
+			}
+			.titre h4:after {
+				left: calc(100% + 10px);
+			}
+		</style>
+		<div class="titre">
+			<h4>vos informations personnelles</h4>		
+		</div>
+	</body>
+
+</html>
