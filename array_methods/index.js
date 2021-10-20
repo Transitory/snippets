@@ -32,3 +32,12 @@ const check_arr1 = array1.indexOf('PHP'); // 1
 const check_arr2 = array1.indexOf('MSN'); // -1
 // OU :
 const check_arr3 = array1.some(language => language === "PHP"); // true
+
+
+/**
+ * Map VS ForEach, pourquoi l'un et pas l'autre ? Ma théorie.
+ * 
+ * Map va servir seulement à modifier chaque item du array ou object
+ * 
+ * ForEach est plus utilisé pour afficher les données ou créer/mettre à jour d'autres données
+ */
