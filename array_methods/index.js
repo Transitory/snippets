@@ -35,9 +35,9 @@ const check_arr3 = array1.some(language => language === "PHP"); // true
 
 
 /**
- * Map VS ForEach, pourquoi l'un et pas l'autre ? Ma théorie.
+ * Map VS ForEach, pourquoi l'un et pas l'autre ?
  * 
- * Map va servir seulement à modifier chaque item du array ou object
+ * Map renvoie un nouvel array avec ce qu'on lui a demandé de faire sur chaque item
  * 
- * ForEach est plus utilisé pour afficher les données ou créer/mettre à jour d'autres données
+ * ForEach ne renvoie rien, il exécute une fonction pour chaque item
  */
