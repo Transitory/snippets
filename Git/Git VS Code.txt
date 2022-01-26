@@ -1,0 +1,60 @@
+https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+Installer Git sur le PC
+
+Si on a déjà créé des fichiers avant le Git, faire un "git init" dans le dossier puis copier la ligne Git qui ressemble à "git remote add origin https://github.com/Transitory/webpack_tuto.git"
+
+git clone
+Permet de récupérer un repo
+
+git pull
+Récupère les modifs de la branche
+
+git commit
+Crée un commit local d'un ou plusieurs fichiers que j'ai choisis + 1 msg
+
+git push
+Envoie mes modifs que j'ai au préalable commitées
+
+git fetch
+Après avoir créé une branche, git fetch permet de la voir et de checkout dessus
+
+git stash
+Si j'ai des modifs que je ne veux pas commit sur cette branche mais que je veux mettre de coté
+-> Peut donc être récupéré sur une autre branche
+
+git stash apply
+Rétabli le dernier stash que j'ai fait
+
+git stash list
+Permet de voir la liste des stash
+
+git stash show stash{0}
+Permet de voir ce qui se trouve dans ce stash
+
+git stash apply stash@{0}
+Rétabli le stash {0}
+
+Pour mettre à jour une branche
+git pull (ou git fetch, git rebase)
+
+Checker les commits
+git log
+
+Annuler un commit
+git reset HEAD^
+
+Pour mettre à jour une branche X depuis master
+git pull origin master
+
+Mettre de coté les modifs de ma branche X si nécessaire avec git stash
+git pull sur ma branche X
+checkout master
+git pull
+checkout X
+git rebase master
+git stash pop
+Conflits possibles
+git add des fichiers à push
+git commit avec msg
+git push
+Si la branche a divergé : git fetch, git rebase

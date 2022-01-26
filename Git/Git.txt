@@ -1,0 +1,139 @@
+Installer Git (j'ai laissé les configs par défaut lors de l'install)
+https://msysgit.github.io/
+
+"Se présenter" (obligatoire) :
+git config --global user.name "Ben"
+git config --global user.email "beneaumoroit@gmail.com"
+Pour connaitre les configs déjà en cours : git config --list
+
+Transformer un dossier en dossier git :
+Aller dans ce dossier avec la ligne de commande et écrire "git init"
+
+Ignorer des dossiers du commit :
+A la racine du site, créer un fichier se nommant ".gitignore", l'éditer et écrire le nom du dossier à ignorer ("node_modules" par exemple)
+
+Signaler à Git quel repository sera utilisé :
+git remote add origin https://github.com/ProfilGit/NomDuRepo.git
+
+Changer la branche de main à master (un premier commit est nécessaire) :
+git branch -M main
+
+Faire un checkout pour remplacer un fichier modifié en local par celui du serveur :
+git checkout nomfichier
+Faire un checkout pour récupèrer les fichiers du serveur :
+Se placer dans le dossier qui recevra le repo (donc ne pas créer le dossier à l'avance) et taper
+git clone https://Transitory@bitbucket.org/Transitory/siteperso.git (par exemple)
+Méthode sécurisée : ssh://Transitory@bitbucket.org/Transitory/siteperso.git
+
+Préparer les fichiers pour un commit :
+git add .
+
+Vérifier quels fichiers ont été ajoutés
+git diff --cached --name-only
+
+Annuler l'ajout d'un fichier :
+git reset HEAD -- fichier_a_supprimer
+
+Commiter : annoncer à git notre modification. Ça reste local :
+git commit -a -m 'message'
+
+Modifier le message du dernier commit :
+git commit --amend
+
+Annuler le commit :
+git reset HEAD
+ HEAD : dernier commit ;
+ HEAD^ : avant-dernier commit ;
+ HEAD^^ : avant-avant-dernier commit ;
+ HEAD~2 : avant-avant-dernier commit (notation équivalente) ;
+ d6d98923868578a7f38dea79833b56d0326fcba1 : indique un numéro de commit précis ;
+ d6d9892 : indique un numéro de commit précis (notation équivalente à la précédente, bien souvent écrire les premiers chiffres est suffisant tant qu’aucun autre commit ne commence par les mêmes chiffres).
+Seul le commit est retiré de Git ; vos fichiers, eux, restent modifiés.
+
+Annuler le commit ET la modification des fichiers :
+git reset --hard HEAD^   /!\ Annule les commits et perd tous les changements
+
+Récupérer les modifications venant du serveur :
+git pull
+
+Checker ce qui a été commité mais pas encore envoyé :
+git log -p
+
+Push : on envoie nos modifs sur le serveur
+git push
+//git push -u origin master
+
+Annuler un commit :
+git revert XXXXX les 5 premiers caractères suffisent
+
+Une branche permet de travailler sur un composant/une idée sur le coté, tout en étant capable d'encore travailler et commiter sur la branche principale si besoin.
+On peut faire des commits sur cette branche. Quand le taf sur cette branche est terminé, on merge avec la branche principale.
+Voir les branches en local :
+git branch
+
+Voir les branches du serveur :
+git branch -r
+
+Créer une branche :
+git branch options_membres
+
+Changer de branche (attention, il faut commit les modifs de la branche actuelle) :
+git checkout options_membres
+
+Merger 2 branches :
+Se placer dans la branche mère et taper :
+git merge options_membres
+
+Supprimer une branche :
+git branch -d options_membres -> Git vérifie qu'il n'y ai plus rien à merger et si c'est le cas, il interdit la suppression.
+Pour forcer :
+git branch -D options_membres
+
+Mettre de coté un travail en cours sans commiter (pour travailler en urgence sur une autre branche par exemple) :
+git stash
+
+Récupérer les fichiers mis de coté :
+git stash apply
+
+Push une branche sur le serveur :
+git push origin origin:refs/heads/nom_nouvelle_branche
+
+Suivre une branche du serveur :
+git branch --track nom_nouvelle_branche origin/nom_nouvelle_branche
+
+Supprimer une branche du serveur :
+git push origin :heads/nom_branche_a_supprimer
+
+Ces branches ne seront pas supprimées des clients, il faut le faire manuellement :
+git branch -r -d origin/nom_branche_a_supprimer
+
+Chercher dans les fichiers :
+git grep "TODO"
+Et pour connaitre le ou les numéros de la ligne contenant TODO :
+git grep -n "TODO"
+
+--------------------
+
+Sur PhpStorm :
+Clic droit sur la racine, Git -> Add
+Clic droit sur la racine, Git -> Commit & Push
+
+Pull :
+Les projets publics sont en lecteur seule sur git. Si on répare qqchose, on doit demander au développeur qu'il fasse un pull de nos modifs
+
+C:\wamp\bin\apache\apache2.4.17\conf\extra\httpd-vhosts.conf
+<VirtualHost *:80>
+    DocumentRoot "c:/wamp/www/projets"
+    ServerName projets
+    <Directory  "c:/wamp/www/projets">
+        AllowOverride All
+        Require local
+    </Directory>
+</VirtualHost>
+
+C:\Windows\System32\drivers\etc\hosts
+127.0.0.1 projets
+::1 projets
+
+C:\wamp\bin\apache\apache2.4.17\conf\httpd.conf
+Décommenter la ligne "Include conf/extra/httpd-vhosts.conf"

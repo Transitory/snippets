@@ -1,0 +1,30 @@
+Aller sur le compte Git, cliquer sur le + en haut à droite et choisir "New repository"
+Le nommer (idéalement) de la même façon que le dossier si on l'avait déjà créé en local
+
+Dans le dossier local, initier git :
+git init
+
+Signaler à Git quel repository sera utilisé :
+git remote add origin https://github.com/ProfilGit/NomDuRepo.git
+
+Ajouter les fichiers pour le commit :
+git add .
+
+Commit avec message :
+git commit -m "message du commit"
+
+Changer la branche de main à master (un premier commit est nécessaire) :
+git branch -M main
+
+Premier push :
+git push --set-upstream origin main (pour que Git se synchro avec le repo)
+Push suivants :
+git push
+
+Modifier un commit :
+git amend
+
+Supprimer des fichiers sur Github mais pas en local :
+git rm -r --cached name-of-the-folder
+git commit -m "your comment"
+git push

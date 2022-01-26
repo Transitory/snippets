@@ -1,0 +1,2 @@
+Si un changement de branche m'est refusé :
+git config core.protectNTFS false
