@@ -25,17 +25,14 @@ Se placer dans le dossier qui recevra le repo (donc ne pas créer le dossier à 
 git clone https://Transitory@bitbucket.org/Transitory/siteperso.git (par exemple)
 Méthode sécurisée : ssh://Transitory@bitbucket.org/Transitory/siteperso.git
 
-Préparer les fichiers pour un commit :
+Préparer les fichiers pour un commit (stage) :
 git add .
 
 Vérifier quels fichiers ont été ajoutés
 git diff --cached --name-only
 
-Annuler l'ajout d'un fichier :
-git reset HEAD -- fichier_a_supprimer
-
 Commiter : annoncer à git notre modification. Ça reste local :
-git commit -a -m 'message'
+git commit -m 'message'
 
 Modifier le message du dernier commit :
 git commit --amend
@@ -53,15 +50,15 @@ Seul le commit est retiré de Git ; vos fichiers, eux, restent modifiés.
 Annuler le commit ET la modification des fichiers :
 git reset --hard HEAD^   /!\ Annule les commits et perd tous les changements
 
+Push : on envoie nos modifs sur le serveur
+git push
+//git push -u origin master
+
 Récupérer les modifications venant du serveur :
 git pull
 
 Checker ce qui a été commité mais pas encore envoyé :
 git log -p
-
-Push : on envoie nos modifs sur le serveur
-git push
-//git push -u origin master
 
 Annuler un commit :
 git revert XXXXX les 5 premiers caractères suffisent
